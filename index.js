@@ -1,32 +1,57 @@
-// import express from "express"
-const express = require('express')
-require('dotenv').config()
+const fs = require('node:fs');
 
+fs.writeFile('example.txt', 'Hello, World!', (err) => {
+  if (err) {
+    console.error('Error writing file:', err);
+    return;
+  }
+  console.log('File written successfully');
+});
 
-const app = express()
-const port = 4000 // what if that port is busy in another persons lapy
+fs.appendFile('example.txt', '\nAppended text.', (err) => {
+  if (err) {
+    console.error('Error appending to file:', err);
+    return;
+  }
+  console.log('File appended successfully');
+});
 
-const githubData = {
-    'user' : 'surajmore',
-    'id' : 16
-}
+fs.readFile('example.txt', 'utf8', (err, data) => {
+  if (err) {
+    console.error('Error reading file:', err);
+    return;
+  }
+  console.log('File contents:', data);
+});
 
-app.get('/',(req,res) => {
-    res.send('Hello world')
+fs.copyFile('example.txt', './testFolder/example_copy.txt', (err) => {
+  if (err) {
+    console.error('Error copying file:', err);
+    return;
+  }
+  console.log('File copied successfully');
 })
 
-app.get('/twitter',(req,res) => {
-    res.send('Epil codes')
-})
+fs.unlink('./testFolder/example_copy.txt', (err) => {
+  if (err) {
+    console.error('Error deleting file:', err);
+    return;
+  }
+  console.log('File deleted successfully');
+});
 
-app.get('/login',(req,res) => {
-    res.send('<h1>Please Signup first <h1>')
-})
+fs.rmdir('./testFolder',{ recursive: true }, (err) => {
+  if (err) {
+    console.error('Error removing directory:', err);
+    return;
+  }
+  console.log('Directory removed successfully');
+});
 
-app.get('/youtube',(req,res) => {
-    res.json(githubData)
-})
-
-app.listen(process.env.port,() => {
-    console.log(`Example app listening on port ${port}`);  
-})
+fs.rm('./testFolder',{ recursive: true }, (err) => {
+  if (err) {
+    console.error('Error removing directory:', err);
+    return;
+  }
+  console.log('Directory removed successfully');
+});

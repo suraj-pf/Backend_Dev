@@ -9,6 +9,8 @@
   "author": "suraj more",
   "license": "ISC",
   "dependencies": {
+    "cookie-parser": "^1.4.7",
+    "ejs": "^3.1.10",
     "express": "^5.1.0"
   }
 }

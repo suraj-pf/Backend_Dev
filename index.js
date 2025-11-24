@@ -9,17 +9,8 @@ app.use(express.static(path.join(__dirname,'public')));
 app.use(express.urlencoded({extended:true}));
 
 app.get('/', (req, res) => {
-    fs.readdir('./files', function(err, files){
-        if(err) {
-            console.error(err);
-            files = []; // fallback to empty array
-        }
-        res.render('index', { files: files || [] });
-    })
+    res.render('index');
 });
-
-
-
 
 
 app.listen(3000,()=>{

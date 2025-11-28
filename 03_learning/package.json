@@ -1,0 +1,20 @@
+{
+  "name": "basic_deploy",
+  "version": "1.0.0",
+  "description": "Trying to depoly a simple thing ",
+  "keywords": [
+    "node",
+    "deploy"
+  ],
+  "license": "ISC",
+  "author": "suraj more",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
